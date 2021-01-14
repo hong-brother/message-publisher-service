@@ -42,7 +42,7 @@ public class PublisherController {
         person.setGroup("topic");
         person.setAge(10);
         person.setName("hsnam");
-        publisherService.sendTopicExchange("#.hsnam.task", person);
+        publisherService.sendTopicExchange("foo.hsnam.task", person);
         //publisherService.sendTopicExchange("#.hsnam.task", person);
 
         return person;
@@ -58,4 +58,6 @@ public class PublisherController {
 
         return person;
     }
+
+
 }

@@ -1,7 +1,5 @@
 package com.hsnam.message.publisher;
 
-import com.hsnam.message.publisher.model.Email;
-import com.hsnam.message.publisher.service.EmailMsgSender;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

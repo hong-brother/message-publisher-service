@@ -7,3 +7,6 @@
 
 ## What is RabbitMQ?
 ![MessageFlow](wiki/MessageFlow.png)
+
+
+https://hakurei.tistory.com/17

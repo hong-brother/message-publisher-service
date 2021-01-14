@@ -1,6 +1,5 @@
 package com.hsnam.message.publisher.receiver;
 
-import com.hsnam.message.publisher.model.Email;
 import com.hsnam.message.publisher.model.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.Exchange;
@@ -12,28 +11,39 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class Receiver {
-    @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "hsnam.key"),
-            exchange = @Exchange(value = "amq.direct", type = "direct", durable = "true"), //
-            key = "hsnam.key"))
-    public void handleDirectExchange(Person in) {
-        log.info("handleDirectExchange="+in.toString());
-    }
+//    @RabbitListener(bindings = @QueueBinding(
+//            value = @Queue(value = "hsnam.key"),
+//            exchange = @Exchange(value = "amq.direct", type = "direct", durable = "true"), //
+//            key = "hsnam.key"))
+//    public void handleDirectExchange(Person in) {
+//        log.info("handleDirectExchange="+in.toString());
+//    }
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "innopam.hsnam.task"),
+            value = @Queue(value = "foo.hsnam.task"),
             exchange = @Exchange(value = "amq.topic", type = "topic", durable = "true"), //
-            key = "innopam.hsnam.task"))
+            key = "foo.hsnam.task"))
     public void handleTopicCase1(Person in) {
+        log.info("key = innopam.hsnam.task");
         log.info("handleTopicCase1="+in.toString());
     }
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "ust21.hsnam.task"),
+            value = @Queue(value = "foo.hsnam.task"),
             exchange = @Exchange(value = "amq.topic", type = "topic", durable = "true"), //
-            key = "ust21.hsnam.task"))
+            key = "foo.hsnam.task"))
     public void handleTopicCase2(Person in) {
+        log.info("key = foo.hsnam.task");
         log.info("handleTopicCase2="+in.toString());
+    }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(value = "foo.hsnam.task"),
+            exchange = @Exchange(value = "amq.topic", type = "topic", durable = "true"), //
+            key = "foo.hsnam.task"))
+    public void handleTopicCase3(Person in) {
+        log.info("key = foo.hsnam.task");
+        log.info("handleTopicCase3="+in.toString());
     }
 
     @RabbitListener(bindings = @QueueBinding(
